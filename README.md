@@ -10,7 +10,7 @@ This plugin improves navigation in Obsidian by treating folders like notes. When
 * **Non-Destructive:** Does not interfere with standard Obsidian collapse/expand behavior.
 
 ## Usage
-
+0.  Locate the plugin in Community Plugins Search, Install, Configure if desired.
 1.  Click any **closed** folder in the File Explorer.
 2.  The folder will expand.
 3.  If a matching homepage file exists inside, it will open in the main view.
