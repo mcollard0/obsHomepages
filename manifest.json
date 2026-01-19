@@ -1,0 +1,10 @@
+{
+	"id": "obsHomepages",
+	"name": "obsHomepages",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Automatically opens a homepage/readme when a folder is expanded in the file explorer. Supports auto-creation of notes.",
+	"author": "Your Name",
+	"authorUrl": "https://github.com/yourname/obsidian-folder-homepage",
+	"isDesktopOnly": false
+}
