@@ -1,0 +1,9 @@
+[
+    {
+        "id": "obsHomepages",
+        "name": "obsHomepages",
+        "author": "Michael Collard",
+        "description": "Automatically opens a homepage/readme when a folder is expanded in the file explorer. Supports auto-creation of notes.",
+        "repo": "michaelcollard/obsHomepages"
+    }
+]
