@@ -30,12 +30,12 @@ export default class ObsHomepagesPlugin extends Plugin {
                 this.registerFolderClickListeners();
             })
         );
-        console.log("obsHomepages Plugin loaded.");
+        console.debug("obsHomepages Plugin loaded.");
     }
 
     onunload() {
         this.cleanUp();
-        console.log("obsHomepages Plugin unloaded.");
+        console.debug("obsHomepages Plugin unloaded.");
     }
 
     cleanUp() {
@@ -64,7 +64,9 @@ export default class ObsHomepagesPlugin extends Plugin {
                 continue;
             }
             this.registerDomEvent(container, 'click', (evt: MouseEvent) => {
-                this.handleExplorerClick(evt);
+                this.handleExplorerClick(evt).catch(( error ) => {
+                    console.debug( 'obsHomepages: Error handling folder click:', error );
+                });
             });
             container.classList.add('folder-homepage-hooked');
         }
@@ -178,10 +180,13 @@ class FolderHomepageSettingTab extends PluginSettingTab {
     display(): void {
         const { containerEl } = this;
         containerEl.empty();
-        containerEl.createEl('h2', { text: 'obsHomepages Settings' });
 
-        new Setting(containerEl)
-            .setName('Homepage Filenames')
+        new Setting( containerEl )
+            .setName( 'obsHomepages settings' )
+            .setHeading();
+
+        new Setting( containerEl )
+            .setName('Homepage filenames')
             .setDesc('Priority list of filenames to check (comma separated).')
             .addTextArea(text => text
                 .setPlaceholder('README.md, homepage.md, index.md')
@@ -202,7 +207,7 @@ class FolderHomepageSettingTab extends PluginSettingTab {
                 }));
 
         new Setting(containerEl)
-            .setName('Match Folder Name')
+            .setName('Match folder name')
             .setDesc('Look for "Folder/Folder.md" first.')
             .addToggle(toggle => toggle
                 .setValue(this.plugin.settings.matchFolderName)
